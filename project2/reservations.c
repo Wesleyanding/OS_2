@@ -28,43 +28,30 @@ int is_free(int n) {
 int reserve_seat(int n)
 {
     // Attempt to reserve seat number n
-    if (n < 0 || n >= seat_count) {
-        return -1;
-    }
-
     // lock the mutex for thread safety
     pthread_mutex_lock(&lock);
     // check if the seat is free
-    if (is_free(n)) {
+    if (!is_free(n)) {
+        pthread_mutex_unlock(&lock); // unlock the mutex
+        return -1;
+    }
+    else {
         seat_taken[n] = 1; // reserve the seat
         seat_taken_count++; // increment the seat_taken_count
         pthread_mutex_unlock(&lock); // unlock the mutex
         return 0;
-    }
-    else {
-        pthread_mutex_unlock(&lock); // unlock the mutex
-        return -1;
     }
 }
 
 int free_seat(int n)
 {
     // Attempt to free (unreserve) seat number n
-
-    // check if the seat is within the bounds
-    if (n < 0 || n >= seat_count) {
-        return -1;
-    }
-
     // lock the mutex for thread safety
     pthread_mutex_lock(&lock);
     // check if the seat is taken
     if (!is_free(n)) {
         seat_taken[n] = 0; // free the seat
-        // decrement the seat_taken_count if greater than 0
-        if (seat_taken_count > 0) {
-            seat_taken_count--;
-        }
+        seat_taken_count--; // decrement the seat_taken_count if greater than 0
         pthread_mutex_unlock(&lock); // unlock the mutex
         return 0;
     }
@@ -87,14 +74,16 @@ int verify_seat_count(void) {
     // still work properly.
 
     int count = 0;
-
+    pthread_mutex_lock(&lock); // lock the mutex
     // Count all the taken seats
     for (int i = 0; i < seat_count; i++)
         if (seat_taken[i])
             count++;
 
     // Return true if it's the same as seat_taken_count
-    return count == seat_taken_count;
+    int temp_seat_count = seat_taken_count;
+    pthread_mutex_unlock(&lock); // unlock the mutex
+    return count == temp_seat_count;
 }
 
 // ------------------- DO NOT MODIFY PAST THIS LINE -------------------
