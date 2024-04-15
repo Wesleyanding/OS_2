@@ -28,6 +28,8 @@ Command Line
     *  `pthread_mutex_unlock()` : Unlock the mutex
 
 * `verify_seat_count()` : Function that counts all the taken seats in the seat_taken array, compares the count and the seat_count global variable and returns true if they are the same. 
+    * `pthread_mutex_lock()` : Lock the mutex
+    *  `pthread_mutex_unlock()` : Unlock the mutex
 
 * `*seat_broker()` : Function to buy and sell seats
 
