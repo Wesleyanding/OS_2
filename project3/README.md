@@ -18,7 +18,8 @@ Command line
 
 ## Functions
 
-`sem` : semaphore initializer 
+`sem_producer` : semaphore initializer for the producer thread
+`sem_consumer` : semaphore initializer for the consumer thread
 
 `sem_open_temp()` : Function that takes a name and a value and creates a semaphore. Given in exploration and project description
 
