@@ -1,17 +1,5 @@
-CC=gcc
-CCOPTS=-Wall -Wextra -Werror
-LIBS=
-
-SRCS=$(wildcard *.c)
-TARGETS=$(SRCS:.c=)
-
-.PHONY: all clean
-
-all: $(TARGETS)
-
-clean:
-	rm -f $(TARGETS)
-
-%: %.c
-	$(CC) $(CCOPTS) -o $@ $< $(LIBS)
-    
+pc: pc.c
+	gcc -Wall -Wextra -Werror -o pc pc.c eventbuf.c
+pc.zip:
+	rm -f $@
+	zip $@ Makefile pc.c
