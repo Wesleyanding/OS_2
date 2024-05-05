@@ -20,4 +20,7 @@ clean:
 pristine: clean
 	rm -f testfs
 
+test: testfs
+	./testfs
+
 
