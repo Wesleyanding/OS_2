@@ -14,7 +14,9 @@ Command line
 `image.c` : The code for opening and closing the file system image
 `image.h` : Shows example usage for the image.c
 `libvvsfs.a : library of object files
-`testfs.c` : The main code to launch the project and run the tests.
+`testfs.c` : The main code to launch the project and run the tests
+`free.c` : The code for finding free and set free blocks
+`free.h` : Shows examples for free.c
 
 ## Data
 `result` - an integer for the result of functions
