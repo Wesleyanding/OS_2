@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <fcntl.h>
+#include "free.h"
+#include "block.h"
 
 int ialloc(void)
 {
