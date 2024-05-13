@@ -21,27 +21,6 @@ int main()
     result = image_close();
     CTEST_ASSERT(result != -1, "image_close");
 
-    // // block.c tests
-    // // Test bread
-    unsigned char block[4096];
-    unsigned char empty_data[4096] = {0};
-
-    bwrite(0, empty_data);
-    unsigned char *read_data = bread(0, block);
-    CTEST_ASSERT(read_data != NULL, "bread");
-    CTEST_ASSERT(strcmp((char *)read_data, "") == 0, "Initial data is empty");
-
-    // Test bwrite
-    unsigned char orginal_data[] = "Hello, World!";
-    bwrite(0, orginal_data);
-    read_data = bread(0, block);
-    CTEST_ASSERT(strcmp((char *)read_data, (char *)orginal_data) == 0, "Data is written");
-
-    unsigned char modified_data[] = "Hello, World! Modified!";
-    bwrite(0, modified_data);
-    read_data = bread(0, block);
-    CTEST_ASSERT(strcmp((char *)read_data, (char *)modified_data) == 0, "Data is modified");
-
     // Test alloc
     int block_num = alloc();
     CTEST_ASSERT(block_num != -1, "alloc");
@@ -72,6 +51,27 @@ int main()
     test_bitmap[0] = 0x00;
     free_bit = find_free(test_bitmap);
     CTEST_ASSERT(free_bit == 0, "find_free returns 0 for first byte with 0");
+
+     // // block.c tests
+    // // Test bread
+    unsigned char block[4096];
+    unsigned char empty_data[4096] = {0};
+
+    bwrite(0, empty_data);
+    unsigned char *read_data = bread(0, block);
+    CTEST_ASSERT(read_data != NULL, "bread");
+    CTEST_ASSERT(strcmp((char *)read_data, "") == 0, "Initial data is empty");
+
+    // Test bwrite
+    unsigned char orginal_data[] = "Hello, World!";
+    bwrite(0, orginal_data);
+    read_data = bread(0, block);
+    CTEST_ASSERT(strcmp((char *)read_data, (char *)orginal_data) == 0, "Data is written");
+
+    unsigned char modified_data[] = "Hello, World! Modified!";
+    bwrite(0, modified_data);
+    read_data = bread(0, block);
+    CTEST_ASSERT(strcmp((char *)read_data, (char *)modified_data) == 0, "Data is modified");
 
     CTEST_RESULTS();
     // CTEST_EXIT();
