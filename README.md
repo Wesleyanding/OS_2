@@ -19,3 +19,11 @@ A thought provoking exercise in finding race conditions and deadlocks in pseudoc
 ## Project 5 - File system
 
 A Very, Very Simple File System (VVSFS)
+
+## Project 6 - File system
+
+Managing free blocks in the File system 
+
+## Project 7 - File system
+
+Adding inode support to the file system 
