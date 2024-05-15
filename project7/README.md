@@ -9,18 +9,18 @@ Command line
 ## Files
 
 `block.c`   : The code for reading and writing blocks\
-`block.h`   : Shows example usage for block.c
-`ctest.h`   : Shows examples for test creation
-`image.c`   : The code for opening and closing the file system image
-`image.h`   : Shows example usage for the image.c
-`libvvsfs.a` : library of object files
-`testfs.c`  : The main code to launch the project and run the tests
-`free.c`    : The code for finding free and set free blocks
-`free.h`    : Shows examples for free.c
-`inode.c`   : The code for inodes
-`inode.h`   : Shows examples for inode.c
-`pack.c`    : The code for reading binary values
-`pack.h`    : Shows examples for pack.c
+`block.h`   : Shows example usage for `block.c`\
+`ctest.h`   : Shows examples for test creation\
+`image.c`   : The code for opening and closing the file system image\
+`image.h`   : Shows example usage for the `image.c`\
+`libvvsfs.a` : library of object files\
+`testfs.c`  : The main code to launch the project and run the tests\
+`free.c`    : The code for finding free and set free blocks\
+`free.h`    : Shows examples for `free.c`\
+`inode.c`   : The code for inodes\
+`inode.h`   : Shows examples for `inode.c`\
+`pack.c`    : The code for reading binary values\
+`pack.h`    : Shows examples for `pack.c`\
 
 ## Data
 `result` - an integer for the result of functions
@@ -33,6 +33,6 @@ Command line
 * `CTEST_EXIT()`    : Function to exit the testing framework
 
 ## Notes
-`ctest.h` was provided. Used in class notes to build functions for image and block. 
+`ctest.h` was provided. Used in class notes to build functions for image and block.\ 
 `pack.c` and `pack.h` was provided. Used in class notes to build functions for inode
 
