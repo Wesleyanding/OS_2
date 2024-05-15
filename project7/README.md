@@ -4,11 +4,11 @@
 
 Command line
 
-`make` to build. Creates an executable called `reservations`.
+`make` to build. Creates an executable called `testfs`.
 
 ## Files
 
-`block.c`   : The code for reading and writing blocks
+`block.c`   : The code for reading and writing blocks\
 `block.h`   : Shows example usage for block.c
 `ctest.h`   : Shows examples for test creation
 `image.c`   : The code for opening and closing the file system image
