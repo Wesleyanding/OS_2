@@ -20,7 +20,7 @@ Command line
 `inode.c`   : The code for inodes\
 `inode.h`   : Shows examples for `inode.c`\
 `pack.c`    : The code for reading binary values\
-`pack.h`    : Shows examples for `pack.c`\
+`pack.h`    : Shows examples for `pack.c`
 
 ## Data
 `result` - an integer for the result of functions
@@ -33,6 +33,7 @@ Command line
 * `CTEST_EXIT()`    : Function to exit the testing framework
 
 ## Notes
-`ctest.h` was provided. Used in class notes to build functions for image and block\. 
+`ctest.h` was provided. Used in class notes to build functions for image and block
+
 `pack.c` and `pack.h` was provided. Used in class notes to build functions for inode
 

@@ -3,7 +3,7 @@
 #define INODE_PTR_COUNT 16
 #define MAX_SYS_OPEN_FILES 64
 
-int ialloc(void);
+struct inode *ialloc(void);
 
 struct inode {
     unsigned int size;
