@@ -27,8 +27,13 @@ int main()
 
     // inode.c tests
     // Test ialloc
-    // struct inode_num = ialloc();
-    // CTEST_ASSERT(inode_num != -1, "ialloc");
+    struct inode *inode = ialloc();
+    CTEST_ASSERT(inode->size == 0, "ialloc size is 0");
+    CTEST_ASSERT(inode->owner_id == 0, "ialloc owner_id is 0");
+    CTEST_ASSERT(inode->permissions == 0, "ialloc permissions is 0");
+    CTEST_ASSERT(inode->flags == 0, "ialloc flags is 0");
+    CTEST_ASSERT(inode->link_count == 0, "ialloc link_count is 0");
+    
 
     // free.c tests
     // Test set_free
