@@ -115,7 +115,7 @@ void iput(struct inode *in) {
 
 struct inode *ialloc(void)
 {
-    unsigned char inode_bitmap[512];
+    unsigned char inode_bitmap[BLOCK_SIZE];
     bread(1, inode_bitmap);
     int inode_num = find_free(inode_bitmap);
     if (inode_num == -1)
