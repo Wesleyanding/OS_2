@@ -27,3 +27,7 @@ Managing free blocks in the File system
 ## Project 7 - File system
 
 Adding inode support to the file system 
+
+## Project 8 - File system 
+
+adding directories to the file system
