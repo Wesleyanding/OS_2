@@ -1,7 +1,7 @@
 testfs: testfs.o libvvsfs.a
 	gcc $^ -o $@
 
-testfs.o: testfs.c image.h block.h ctest.h free.h inode.h pack.h
+testfs.o: testfs.c image.h block.h ctest.h free.h inode.h pack.h dir.h ls.h
 	gcc -Wall -Wextra -c $<
 
 image.o: image.c image.h
@@ -19,7 +19,13 @@ inode.o: inode.c inode.h
 pack.o: pack.c pack.h
 	gcc -Wall -Wextra -c $<
 
-libvvsfs.a: image.o block.o free.o inode.o pack.o
+dir.o: dir.c dir.h
+	gcc -Wall -Wextra -c $<
+
+ls.o: ls.c ls.h
+	gcc -Wall -Wextra -c $<
+
+libvvsfs.a: image.o block.o free.o inode.o pack.o dir.o ls.o
 	ar rcs $@ $^
 
 .PHONY: clean pristine

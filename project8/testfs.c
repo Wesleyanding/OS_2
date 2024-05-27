@@ -2,11 +2,14 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <string.h>
+#include <fcntl.h>
+#include "pack.h"
 #include "image.h"
 #include "block.h"
 #include "ctest.h"
 #include "free.h"
 #include "inode.h"
+#include "dir.h"
 
 int main()
 {
@@ -77,6 +80,30 @@ int main()
     bwrite(0, modified_data);
     read_data = bread(0, block);
     CTEST_ASSERT(strcmp((char *)read_data, (char *)modified_data) == 0, "Data is modified");
+
+    // directory.c tests
+    // Test mkfs
+    mkfs();
+    // struct inode *root_inode = iget(1);
+    // CTEST_ASSERT(root_inode->flags == 2, "root_inode flags is 2");
+    // CTEST_ASSERT(root_inode->size == 64, "root_inode size is 64");
+    // CTEST_ASSERT(root_inode->block_ptr[0] != 0, "root_inode block_ptr[0] is not 0");
+
+    // Test directory_open
+    struct directory *dir = directory_open(1);
+    CTEST_ASSERT(dir != NULL, "directory_open");
+
+    // Test directory_get
+    // struct directory_entry ent;
+    // int get_result = directory_get(dir, &ent);
+
+    // CTEST_ASSERT(get_result == 0, "directory_get");
+    // CTEST_ASSERT(ent.inode_num == 1, "ent inode_num is 1");
+    // CTEST_ASSERT(strcmp(ent.name, ".") == 0, "ent name is .");
+
+    // Test directory_close
+    directory_close(dir);
+    CTEST_ASSERT(dir == NULL, "directory_close");
 
     CTEST_RESULTS();
     // CTEST_EXIT();
