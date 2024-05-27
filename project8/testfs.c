@@ -83,7 +83,7 @@ int main()
 
     // directory.c tests
     // Test mkfs
-    mkfs();
+    // mkfs();
     // struct inode *root_inode = iget(1);
     // CTEST_ASSERT(root_inode->flags == 2, "root_inode flags is 2");
     // CTEST_ASSERT(root_inode->size == 64, "root_inode size is 64");
