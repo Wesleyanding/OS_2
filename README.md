@@ -31,3 +31,7 @@ Adding inode support to the file system
 ## Project 8 - File system 
 
 adding directories to the file system
+
+## Project 9 - File system
+
+adding mkdir and namei
