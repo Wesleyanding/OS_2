@@ -20,4 +20,8 @@ void directory_close(struct directory *dir);
 
 void mkfs(void);
 
+struct inode *namei(char *path);
+
+int directory_make(char *path);
+
 #endif 
