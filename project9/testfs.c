@@ -105,6 +105,19 @@ int main()
     directory_close(dir);
     CTEST_ASSERT(dir == NULL, "directory_close");
 
+    // Test namei
+    struct inode *root_inode = namei("/");
+    CTEST_ASSERT(root_inode->inode_num == 0, "namei root inode_num is 0");
+    root_inode = namei("/foo");
+    CTEST_ASSERT(root_inode->inode_num == 1, "namei foo inode_num is 1");
+    root_inode = namei("/foo/bar");
+    CTEST_ASSERT(root_inode->inode_num == 2, "namei bar inode_num is 2");
+
+    // Test directory_make
+    int make_result = directory_make("/foo");
+    CTEST_ASSERT(make_result == 0, "directory_make foo");
+    
+
     CTEST_RESULTS();
     // CTEST_EXIT();
 }
